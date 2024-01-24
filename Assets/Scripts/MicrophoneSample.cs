@@ -55,7 +55,7 @@ public class MicrophoneSample : MonoBehaviour
         Debug.Log("Volume: " + volume);
 
         if(volume >= thresholdVolume){
-            OnThreshHold?.invoke(this,Eventargs.empty);
+            OnThreshHold?.Invoke(this, EventArgs.Empty);
         }
     }
 }
