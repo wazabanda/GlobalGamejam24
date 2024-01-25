@@ -54,7 +54,7 @@ public class MicrophoneSample : MonoBehaviour
         // Display the volume (you can replace this with your own logic)
         Debug.Log("Volume: " + volume);
 
-        if(volume >= thresholdVolume){
+        if(volume >= thresholdVolume || Input.GetKeyDown(KeyCode.Space)){
             OnThreshHold?.Invoke(this, EventArgs.Empty);
         }
     }
