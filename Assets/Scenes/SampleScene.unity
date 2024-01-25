@@ -419,7 +419,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.099
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   microphoneName: 
   sensitivity: 100
-  thresholdVolume: 5
+  thresholdVolume: 1
 --- !u!4 &313622926
 Transform:
   m_ObjectHideFlags: 0
@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: 430696140}
   - component: {fileID: 430696139}
   - component: {fileID: 430696142}
+  - component: {fileID: 430696143}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -564,8 +565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c6b05a4e4ad1a45845391be13119a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomActions: []
+  randomActions:
+  - {fileID: 430696143}
   mainAction: {fileID: 430696142}
+  ADHDTIME: 2
+  currentTime: 0
 --- !u!212 &430696140
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -657,6 +661,23 @@ MonoBehaviour:
   timeToStayAtPoint: 1
   currentActionTime: 0
   currentlyAtPont: 0
+--- !u!114 &430696143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430696138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee08d930335443a4c9cef4a8b3ee4b16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionPerformTime: 10
+  currentTime: 0
+  hasStarted: 0
+  canExit: 1
+  idlePosition: {fileID: 594512055}
 --- !u!1 &502607103
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1170,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.34961152, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

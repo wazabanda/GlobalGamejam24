@@ -7,7 +7,9 @@ public abstract class HeroAction : MonoBehaviour
 
     public float actionPerformTime;
     public float currentTime;
-    public bool hasStarted,canExit;
+    public bool hasStarted,canExit = true;
+
+
     public void StartAction(HeroController controller)
     {
         
@@ -30,11 +32,16 @@ public abstract class HeroAction : MonoBehaviour
     public void Start()
     {
         currentTime = 0;
+        hasStarted = false;
+        canExit = true;
     }
 
     public void Update()
     {
-        if(currentTime < actionPerformTime)
+        if(hasStarted == false){
+            return;
+        }
+        if(currentTime < actionPerformTime )
         {
             DoAction();
             currentTime += Time.deltaTime;

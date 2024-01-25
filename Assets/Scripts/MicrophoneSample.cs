@@ -52,9 +52,9 @@ public class MicrophoneSample : MonoBehaviour
         float volume = sum / samples.Length * sensitivity;
 
         // Display the volume (you can replace this with your own logic)
-        Debug.Log("Volume: " + volume);
 
         if(volume >= thresholdVolume || Input.GetKeyDown(KeyCode.Space)){
+            Debug.Log("Volume: " + volume);
             OnThreshHold?.Invoke(this, EventArgs.Empty);
         }
     }

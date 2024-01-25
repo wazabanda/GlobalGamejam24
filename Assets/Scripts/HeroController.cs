@@ -21,13 +21,16 @@ public class HeroController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentTime >= ADHDTIME){
-            if(randomActions.Count > 0 && chosenAction == null && mainAction.CanLeaveState(this))
+        if(currentTime >= ADHDTIME && (chosenAction == null || chosenAction.CanLeaveState(this)) && mainAction.CanLeaveState(this)){
+            currentTime = 0;
+            if(randomActions.Count > 0 && (chosenAction == null || chosenAction.CanLeaveState(this)) && mainAction.CanLeaveState(this))
             {
+            print("Doing random action");
 
             int ran = Random.Range(0,randomActions.Count);
             chosenAction = randomActions[ran];
             chosenAction.StartAction(this);
+           
             }
         }else{
             currentTime += Time.deltaTime;
@@ -37,11 +40,13 @@ public class HeroController : MonoBehaviour
 
     public void OnThreshHoldReached(object sender, System.EventArgs args)
     {
+        print("Triggering actions");
+        mainAction.StartAction(this);
         if(chosenAction != null)
         {
             chosenAction.StopAction();
+
         }
-        mainAction.StartAction(this);
         
     }
 }
